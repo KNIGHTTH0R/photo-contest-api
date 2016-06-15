@@ -1,5 +1,6 @@
 var errorHandler = require('./middleware/error-handler')
 var requestId = require('./middleware/request-id')
+var attachSendError = require('./middleware/send-error')
 var compression = require('compression')
 var bodyParser = require('body-parser')
 var express = require('express')
@@ -26,6 +27,7 @@ module.exports = function () {
   app.use(cors({origin: true, credentials: true}))
   app.use(bodyParser.json())
   app.use(bodyParser.urlencoded({extended: true}))
+  app.use(attachSendError)
 
   // Routing
   routes(app)

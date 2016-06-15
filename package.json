@@ -16,6 +16,7 @@
     "express": "^4.13.4",
     "helmet": "^2.1.1",
     "superagent": "^2.0.0",
+    "unidecode": "^0.1.8",
     "uuid": "^2.0.2"
   }
 }
