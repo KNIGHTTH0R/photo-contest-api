@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "istanbul cover _mocha",
     "start": "node index.js"
   },
   "author": "Kenneth Lee <kennethkl@gmail.com>",
@@ -15,8 +15,14 @@
     "dotenv": "^2.0.0",
     "express": "^4.13.4",
     "helmet": "^2.1.1",
+    "istanbul": "^0.4.3",
     "superagent": "^2.0.0",
     "unidecode": "^0.1.8",
     "uuid": "^2.0.2"
+  },
+  "devDependencies": {
+    "mocha": "^2.5.3",
+    "should": "^9.0.2",
+    "supertest": "^1.2.0"
   }
 }

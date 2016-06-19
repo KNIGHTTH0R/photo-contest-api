@@ -4,13 +4,13 @@ var uuid = require('uuid')
 var contestIndex = {};
 var contestDb = [];
 
-exports.create = function (name, startedAt, tags) {
+exports.create = function (name, startedAt, tag) {
   var slug = unidecode(name).trim().toLowerCase().replace(/\W+/g, '-').replace(/^-|-$/g, '');
   if (contestIndex[slug]) {
     return
   }
-
-  var contest = { name, slug, startedAt, tags };
+  var createdAt = Date.now()
+  var contest = { name, slug, startedAt, tag, createdAt };
   contestDb.push(contest);
   contestIndex[contest.slug] = contest;
 
@@ -19,7 +19,6 @@ exports.create = function (name, startedAt, tags) {
 
 exports.get = function (slug) {
   var contest = contestIndex[slug];
-  console.log(contest)
   if (contest) {
     return JSON.parse(JSON.stringify(contest));
   }
@@ -29,7 +28,7 @@ exports.list = function () {
   return JSON.parse(JSON.stringify(contestDb));
 };
 
-exports.delete = function (slug) {
+exports.destroy = function (slug) {
   if (!contestIndex[slug]) {
     return
   }
