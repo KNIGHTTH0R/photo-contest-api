@@ -8,6 +8,6 @@ dotenv.config();
 var Server = require('./server')
 var server = new Server()
 
-server.listen(process.env.PORT, function () {
+server.listen(process.env.PORT, '0.0.0.0', function () {
   console.log('Server started on port %d in %s mode.', process.env.PORT, process.env.NODE_ENV || 'development')
 })

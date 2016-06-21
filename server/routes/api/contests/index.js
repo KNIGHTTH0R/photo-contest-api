@@ -2,7 +2,7 @@ var express = require('express');
 var router = module.exports = express.Router();
 
 var photos = require('./photos');
-var Contest = require('../../services/contest');
+var Contest = require('../../../services/contest');
 
 router.use('/:contestSlug/photos', photos)
 
