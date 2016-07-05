@@ -27,8 +27,12 @@ module.exports = function (err, req, res, next) {
     // })
   }
 
-  res.status(status).send({
+  var result = {
     code: code,
     message: err.message
-  })
+  }
+  if (err.errors) {
+    result.errors = err.errors
+  }
+  res.status(status).send(result)
 }

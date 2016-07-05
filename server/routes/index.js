@@ -3,5 +3,9 @@ var api = require('./api')
 
 module.exports = function (app) {
   app.use('/api', api)
-  app.use('/', express.static('public'))
-};
+  app.use('/admin', express.static('public'))
+
+  app.use('/', function (res, res) {
+    res.redirect('/admin')
+  })
+}

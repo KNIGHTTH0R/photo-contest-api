@@ -1,1 +1,59 @@
-Hello World
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <title>Photo Contest | Negadecimal</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="/admin/vendor/underscore-min.js"></script>
+  <script src="/admin/vendor/backbone-min.js"></script>
+  <script src="/admin/vendor/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="/admin/vendor/bootstrap.min.css" />
+
+  <link rel="stylesheet" type="text/css" href="/admin/css/application.css" />
+  <link rel="icon" href="/admin/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/admin/favicon.ico" type="image/x-icon">
+
+  <script src="/admin/js/base-router.js"></script>
+  <script src="/admin/js/table-view.js"></script>
+  <script src="/admin/js/modal-view.js"></script>
+  <script src="/admin/js/form-modal-view.js"></script>
+</head>
+<body>
+  <header class="navbar navbar-fixed-top navbar-default" style="box-shadow: 0 0 5px #eee;">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#nav-menu" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a href="/admin" class="navbar-brand">Photo Contest</a>
+      </div>
+      <nav class="collapse navbar-collapse" id="nav-menu">
+        <ul class="nav navbar-nav">
+          <li id="contests-menu-item" class="active"{% endif %}><a href="/admin/contests/">Contests</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <article class="container-fluid" style="padding-top: 50px">
+    <header id="breadcrumbs"></header>
+
+    <section id="contests" class="subview"></section>
+    <section id="photos" class="subview"></section>
+  </article>
+
+  <script src="/admin/js/models/contest.js"></script>
+  <script src="/admin/js/contests/create.js"></script>
+  <script src="/admin/js/contests/item.js"></script>
+  <script src="/admin/js/contests/list.js"></script>
+  <script src="/admin/js/router.js"></script>
+  <script src="/admin/js/application.js"></script>
+</body>
+</html>

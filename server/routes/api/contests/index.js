@@ -24,7 +24,7 @@ router.route('/')
     var contest = Contest.create(req.body.name, new Date(req.body.startedAt).getTime(), req.body.tag);
 
     if (!contest) {
-      return res.sendErrorMessage(400, 'Duplicate name');
+      return res.sendErrorMessage(400, 'Duplicate name', {errors: [{name: 'name', errors: ['duplicate']}]});
     }
 
     res.send(contest);
