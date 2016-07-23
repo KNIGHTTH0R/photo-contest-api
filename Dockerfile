@@ -1,4 +1,4 @@
-FROM node:wheezy
+FROM mhart/alpine-node:4.4
 
 # Build
 RUN mkdir -p /app
@@ -8,6 +8,8 @@ RUN npm install --production
 
 # Copy files
 ADD . /app
+
+EXPOSE 5000
 
 # Start
 CMD ["npm", "start"]

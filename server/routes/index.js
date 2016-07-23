@@ -6,6 +6,6 @@ module.exports = function (app) {
   app.use('/admin', express.static('public'))
 
   app.get('/', function (res, res) {
-    res.redirect('/admin')
+    res.redirect('/admin/#contests')
   })
 }
