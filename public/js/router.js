@@ -4,8 +4,8 @@
   */
   window.Router = BaseRouter.extend({
     routes: {
-      'admin/': 'onContests',
-      'admin/contests/': 'onContests',
+      'contests': 'onContests',
+      'contests/:slug/photos': 'onPhotos',
     },
 
     onContests: function() {
@@ -17,6 +17,17 @@
       this.collection.fetch({});
 
       this.switchToSubView('#contests');
+    },
+
+    onPhotos: function(slug) {
+      this.collection = new PhotoCollection([], {contestSlug: slug});
+      this.view = new PhotoListView({
+        el: '#photos',
+        collection: this.collection
+      });
+      this.collection.fetch({});
+
+      this.switchToSubView('#photos');
     }
   });
 })();

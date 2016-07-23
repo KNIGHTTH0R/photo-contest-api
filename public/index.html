@@ -10,6 +10,7 @@
   <script src="/admin/vendor/underscore-min.js"></script>
   <script src="/admin/vendor/backbone-min.js"></script>
   <script src="/admin/vendor/bootstrap.min.js"></script>
+  <script src="/admin/vendor/moment.min.js"></script>
 
   <link rel="stylesheet" type="text/css" href="/admin/vendor/bootstrap.min.css" />
 
@@ -36,7 +37,7 @@
       </div>
       <nav class="collapse navbar-collapse" id="nav-menu">
         <ul class="nav navbar-nav">
-          <li id="contests-menu-item" class="active"{% endif %}><a href="/admin/contests/">Contests</a></li>
+          <li id="contests-menu-item" class="active"{% endif %}><a href="/admin/#contests">Contests</a></li>
         </ul>
       </nav>
     </div>
@@ -50,9 +51,12 @@
   </article>
 
   <script src="/admin/js/models/contest.js"></script>
+  <script src="/admin/js/models/photo.js"></script>
   <script src="/admin/js/contests/create.js"></script>
   <script src="/admin/js/contests/item.js"></script>
   <script src="/admin/js/contests/list.js"></script>
+  <script src="/admin/js/photos/item.js"></script>
+  <script src="/admin/js/photos/list.js"></script>
   <script src="/admin/js/router.js"></script>
   <script src="/admin/js/application.js"></script>
 </body>

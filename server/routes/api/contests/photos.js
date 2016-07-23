@@ -4,9 +4,9 @@ var router = module.exports = express.Router();
 var Instagram = require('../../../services/instagram');
 
 router.get('/', function (req, res) {
+  console.log('photos!')
   Instagram.fetchRecentMediaByTag(req.contest.tag)
     .then(function (body) {
-      // console.log('body')
       res.send(body)
     })
     .catch(function (err) {

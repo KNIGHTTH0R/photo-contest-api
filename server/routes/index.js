@@ -5,7 +5,7 @@ module.exports = function (app) {
   app.use('/api', api)
   app.use('/admin', express.static('public'))
 
-  app.use('/', function (res, res) {
+  app.get('/', function (res, res) {
     res.redirect('/admin')
   })
 }

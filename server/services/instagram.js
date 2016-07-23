@@ -8,6 +8,7 @@ exports.fetchRecentMediaByTag = function (tag, count) {
     request.get(`https://api.instagram.com/v1/tags/${tag}/media/recent`)
       .query({ access_token, count })
       .end(function (err, res) {
+        console.log(err)
         if (err) {
           return reject(err);
         }

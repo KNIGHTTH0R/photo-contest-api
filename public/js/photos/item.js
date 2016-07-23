@@ -1,17 +1,17 @@
 (function () {
-  window.ContestItemView = TableItemView.extend({
+  window.PhotoItemView = TableItemView.extend({
     tagName: 'tr',
-    type: 'Contest',
+    type: 'Photo',
     deleteKey: 'name',
 
     template: _.template([
+      '<td><img src="<%= imageUrl %>" width="100%"/></td>',
+      '<td><%= caption %></td>',
       '<td><%= name %></td>',
-      '<td>#<%= tag %></td>',
       '<td><%= moment(startedAt).fromNow() %></td>',
       '<td>',
         '<div class="btn-group">',
-          '<a class="btn btn-primary btn-xs btn-photos" href="#contests/<%= slug %>/photos">Photos</a>',
-          '<button class="btn btn-danger btn-xs btn-delete">Delete</button>',
+          '<button class="btn btn-danger btn-xs btn-delete"<%= name === "master" ? "disabled" : "" %>>Delete</button>',
         '</div>',
       '</td>'
     ].join('')),
@@ -28,10 +28,10 @@
     render: function() {
       this.$el.empty();
       this.$el.append(this.template({
-        name: this.model.get('name'),
-        slug: this.model.get('slug'),
-        tag: this.model.get('tag'),
-        startedAt: this.model.get('startedAt')
+        imageUrl: this.model.get('images').low_resolution.url,
+        caption: this.model.get('caption').text,
+        name: this.model.get('caption').from.full_name,
+        startedAt: parseInt(this.model.get('created_time'), 10) * 1000
       }));
 
       return this;
